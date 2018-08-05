@@ -1,0 +1,54 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
+    background: black;
+    background-image: url("../images/avengers1920x1200.jpg");
+    background-size: cover;
+}
+
+h1 {
+    font-size: 5rem;
+    float: right;
+    padding-right: 2rem;
+}
+
+#game-body {
+    /* height: 768px; */
+    width: 1200px;
+    margin: auto;
+}
+
+img {
+    margin: auto, 5px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#champion,
+#opponents,
+#defender {
+    clear: left;
+}
+
+.sideText {
+    text-align: right;
+    padding-right: 15px;
+    color: white;
+}
+
+.character {
+    margin-right: 10px;
+    height: 210px;
+    width: 210px;
+    border: 3px solid greenyellow;
+    float: left;
+    background: black;
+    position: relative;
+}
+
+#foes .character {
+    border: 3px solid red;
+    background: red;
+}
