@@ -1,14 +1,13 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     var ironman = {
         name: "Iron Man",
         isChampion: false,
-        baseHealth: 100,
-        healthPoints: 100,
-        baseAttackPower: 6,
-        attackPower: 0,
-        baseCounterAttack: 6,
-        counterAttack: 0,
+        baseHealth: 120,
+        healthPoints: 120,
+        baseAttackPower: 7,
+        attackPower: 7,
+        counterAttack: 7,
         hasLost: false,
         isEnemy: false,
         id: "#hironman",
@@ -17,12 +16,11 @@ $(document).ready(function() {
     var hulk = {
         name: "Hulk",
         isChampion: false,
-        baseHealth: 100,
-        healthPoints: 100,
-        baseAttackPower: 6,
-        attackPower: 0,
-        baseCounterAttack: 6,
-        counterAttack: 0,
+        baseHealth: 110,
+        healthPoints: 110,
+        baseAttackPower: 8,
+        attackPower: 8,
+        counterAttack: 8,
         hasLost: false,
         isEnemy: false,
         id: "#hhulk",
@@ -31,12 +29,11 @@ $(document).ready(function() {
     var ultron = {
         name: "Ultron",
         isChampion: false,
-        baseHealth: 100,
-        healthPoints: 100,
+        baseHealth: 130,
+        healthPoints: 130,
         baseAttackPower: 6,
-        attackPower: 0,
-        baseCounterAttack: 6,
-        counterAttack: 0,
+        attackPower: 6,
+        counterAttack: 6,
         hasLost: false,
         isEnemy: false,
         id: "#hultron",
@@ -47,10 +44,9 @@ $(document).ready(function() {
         isChampion: false,
         baseHealth: 100,
         healthPoints: 100,
-        baseAttackPower: 6,
-        attackPower: 0,
-        baseCounterAttack: 6,
-        counterAttack: 0,
+        baseAttackPower: 10,
+        attackPower: 10,
+        baseCounterAttack: 10,
         hasLost: false,
         isEnemy: false,
         id: "#hthanos",
@@ -60,31 +56,44 @@ $(document).ready(function() {
 
     var gameOn = false;
 
-    var pics = ["hironman", "hhulk", "hultron", "hthanos"]
+    var pics = ["hironman", "hhulk", "hultron", "hthanos"];
+    var champChosen = false;
+    var enemyChosen = false;
 
 
-   if (!gameOn) {
-        $(".character").click(function() {
-            console.log(this);
+    if (!gameOn && !champChosen) {
+        gameOn = true;
+        $(".character").click(function () {
+            if (!champChosen) {
             var chosen = this;
-            console.log(chosen.id)
-            $.each(players, function(i, val) {               
-                console.log(chosen);
-                console.log(val);
-                if (pics[i] === chosen.id) {
-                    players[i].isChampion = true;
-                }
-            })
-            this.isChampion = true;
-            $.each(players, function(i, val) {
-                if (!this.isChampion) {
+            champChosen = true;
+            $.each(players, function (i, val) {
+                if (pics[i] !== chosen.id) {
                     $("#foes").prepend($(this.id));
+                } else {
+                    players[i].isChampion = true;
+                };
+            });
+            $("#champion").text("Your Chosen Hero");
+            $("#opponents").text("Choose Your Opponent!");
+            } else if (champChosen && !enemyChosen) {
+                console.log(champChosen);
+                console.log(this.id);
+                $("#current-foe").prepend($("#" + this.id));
+                enemyChosen = true;
+                var enemy = this.id;
+                $.each(players, function(i, val) {
+                    if (pics[i] = enemy) {
+                        players[i].isEnemy = true;
+                    }
+                })
+                } else {
+                    event.preventDefault();
                 }
             })
-        })
+
     }
 
 
 
-
-})
+    })
