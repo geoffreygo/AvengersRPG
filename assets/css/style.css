@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     float: right;
     padding-right: 2rem;
 }
@@ -62,4 +62,18 @@ img {
 #attack {
     margin-bottom: 1.5rem;
     font-family: 'Do Hyeon', sans-serif;
+}
+
+button {
+    padding: 5px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 0.75rem;
+    background: black;
+    color: white;
+}
+
+#notify {
+    width: 15rem;
+    margin: auto, 0.5rem;
+    float: left;
 }
