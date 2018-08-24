@@ -19,4 +19,4 @@ Avengers assemble!!
 This was an exercise in using jquery to create and manipulate DOM objects. I learned a lot about using objects and ways to
 manipulate html elements by using ids and classes.
 
-https://geoffreygo.github.io/unit-4-game/
+https://geoffreygo.github.io/AvengersRPG/
